@@ -1,3 +1,4 @@
+
 // Book Class: Represents a Book
 class Book {
     constructor(title, author, isbn) {
@@ -87,6 +88,9 @@ class Store {
         localStorage.setItem('books', JSON.stringify(books));
     }
 }
+
+
+
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 

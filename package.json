@@ -1,0 +1,27 @@
+{
+  "name": "mybooklist",
+  "version": "1.0.0",
+  "description": "RESTful API with Node.js, Express, and PostgreSQL to allow dynamic storage onto live database.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rivas1/mybooklist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rivas1/mybooklist/issues"
+  },
+  "homepage": "https://github.com/Rivas1/mybooklist#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
