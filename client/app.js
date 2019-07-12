@@ -141,6 +141,3 @@ document.querySelector('#book-list').addEventListener( 'click', (e) => {
 
 
 });
-
-
- 
