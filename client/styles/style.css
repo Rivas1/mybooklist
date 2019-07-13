@@ -1,16 +1,16 @@
 :root {
-    --primary-color: #302AE6;
-    --secondary-color: #536390;
+    --primary-color: rgb(0, 0, 0);
+    --secondary-color: #000;
     --font-color: #000;
     --bg-color: #fff;
-    --heading-color: #292922;
+    --heading-color: #000000;
 }
 
 [data-theme="dark"] {
-    --primary-color: #9A97F3;
+    --primary-color: rgb(82, 82, 82);
     --secondary-color: #818cab;
-    --font-color: #e1e1ff;
-    --bg-color: #161625;
+    --font-color: #ffffff;
+    --bg-color: #2e363a;
     --heading-color: #818cab;
 }
 
@@ -25,6 +25,10 @@ h1 {
 
 a {
     color: var(--primary-color);
+}
+
+tr {
+    color: var(--font-color);
 }
 
 /*Simple css to style it like a toggle switch*/
@@ -71,7 +75,7 @@ a {
   }
   
   input:checked + .slider {
-    background-color: #66bb6a;
+    background-color: #2abb32;
   }
   
   input:checked + .slider:before {
