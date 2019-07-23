@@ -57,14 +57,21 @@ document.querySelector('#book-list').addEventListener( 'click', (e) => {
 
 // Event: Toggle dark theme
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+let currentTheme = localStorage.getItem('theme');
+if ( currentTheme == 'dark')
+    toggleSwitch.checked = true;
+document.documentElement.setAttribute('data-theme', `${currentTheme}`);
+
+
 
 function switchTheme(e) {
-    if (e.target.checked) {
+    let currentTheme = localStorage.getItem('theme');
+    // console.log('the current theme is' +    currentTheme);
+    if (currentTheme == 'light') {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
     }
-    else {
+    else if (currentTheme == 'dark') {
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
     }    
