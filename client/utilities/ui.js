@@ -15,7 +15,7 @@ export default class UI {
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.isbn}</td>
-            <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+            <td><a href="#" class="btn btn-danger btn-sm delete">Delete</a></td>
         `;
 
         list.appendChild(row);
@@ -24,6 +24,7 @@ export default class UI {
     static deleteBook(el) {
         if (el.classList.contains('delete')) {
             el.parentElement.parentElement.remove();
+            console.log("Removed from UI");
         }
     }
 

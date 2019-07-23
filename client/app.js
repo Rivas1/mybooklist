@@ -43,11 +43,13 @@ document.querySelector('#book-list').addEventListener( 'click', (e) => {
     
     // Remove book from UI
     UI.deleteBook(e.target);
+    console.log(e.target);
 
     // Remove book from local storage
     const isbn = e.target.parentElement.previousElementSibling.textContent;
     Store.removeBook(isbn);
      
+    // console.log(isbn);
     UI.showAlert('Book Removed!', 'success');
 
 
