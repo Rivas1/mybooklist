@@ -20,7 +20,8 @@ app.use(logger);
 const db = mysql.createConnection({
     host    : "localhost",
     user    : 'vesper',
-    password: 'test123'
+    password: 'test123',
+    database: 'mybooks'
 });
 
 // Connect to DB
@@ -38,6 +39,28 @@ app.get('/createdb', (request, response) => {
         if (err) throw err;
         else console.log(result);
         response.send('Database created successfully!');
+    });
+});
+
+// Add 1 book
+app.get('/addbook1', (request, response) => {
+    let book = {title:'The API Book', author:'MYSQL Rivas', isbn: 9000};
+    let sql = 'INSERT INTO books SET ?';
+    let query = db.query(sql, book, (err, result) => {
+        if (err) throw err;
+        else console.log(result);
+        response.send('Book 1 was added!');
+    });
+});
+
+// Add 2 book
+app.get('/addbook2', (request, response) => {
+    let book = {title:'The Second Book', author:'Vesper', isbn: 302};
+    let sql = 'INSERT INTO books SET ?';
+    let query = db.query(sql, book, (err, result) => {
+        if (err) throw err;
+        else console.log(result);
+        response.send('Book 2 was added!');
     });
 });
 
