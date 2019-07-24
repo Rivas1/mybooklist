@@ -33,7 +33,7 @@ db.connect( (err ) => {
         throw err;
     }
     else console.log("MySQL connected succesflly...");
-});
+ });
 
 // Create DB
 app.get('/createdb', (request, response) => {
@@ -61,7 +61,12 @@ app.post('/api/create_book',  (request, response) => {
     let book = {title: `${title}`, author: `${author}`, isbn: `${isbn}`};
     let sql = 'INSERT INTO books SET ?';
     let query = db.query(sql, book, (err, result) => {
-        if (err) throw err;
+        if (err) {
+            if (err['errno'] == 1062)
+            console.log('Duplicate entry');
+            response.status(200).send(`${book.title} could not be added because it already exists in the database`);
+            return;
+        }   
         else console.log(result);
         response.status(200).send(`${book.title} has been added`);
     });
