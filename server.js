@@ -45,9 +45,27 @@ app.get('/createdb', (request, response) => {
     });
 });
 
-app.post('/api/create_book', (request, response) => {
-    console.log("A post request has been made to /addbook");
-    response.status(200).send('Finally! Wow....');
+app.post('/api/create_book',  (request, response) => {
+    console.log("A post request has been made to /addbook"); // to cmd
+    
+    const title = request.body.title;
+    const author = request.body.author;
+    const isbn = request.body.isbn;
+    
+    // Make sure parameters are being passed to server
+    console.log(title);
+    console.log(author);
+    console.log(isbn);
+
+    // let's add the book to the server.
+    let book = {title: `${title}`, author: `${author}`, isbn: `${isbn}`};
+    let sql = 'INSERT INTO books SET ?';
+    let query = db.query(sql, book, (err, result) => {
+        if (err) throw err;
+        else console.log(result);
+        response.status(200).send(`${book.title} has been added`);
+    });
+    
 });
 
 // Add 1 book
