@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 // Event: Add a Book
 document.querySelector('#book-form').addEventListener('submit', (e) => {
-    // Prevent actual submit
-    e.preventDefault();
 
     // Get form values
     const title = document.querySelector('#title').value;
@@ -33,7 +31,7 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
         UI.showAlert('Book Added!', 'success');
 
         // Clear fields after submission
-        UI.clearFields();
+        // UI.clearFields();
     }
    
 });

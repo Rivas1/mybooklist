@@ -12,6 +12,9 @@ app.use(
         extended: true,
     })
 );
+// Set static folder
+app.use(express.static(path.join(__dirname, 'client')));
+
 
 // Init middleware
 app.use(logger);
@@ -42,6 +45,11 @@ app.get('/createdb', (request, response) => {
     });
 });
 
+app.post('/api/create_book', (request, response) => {
+    console.log("A post request has been made to /addbook");
+    response.status(200).send('Finally! Wow....');
+});
+
 // Add 1 book
 app.get('/addbook1', (request, response) => {
     let book = {title:'The API Book', author:'MYSQL Rivas', isbn: 9000};
@@ -68,9 +76,6 @@ app.get('/addbook2', (request, response) => {
 app.get('/api/books', (request, response ) => {
     response.json("Welcome to the api");
 });
-
-// Set static folder
-app.use(express.static(path.join(__dirname, 'client')));
 
 app.listen( PORT, () => {
     console.log(`Started on PORT ${PORT}`)
